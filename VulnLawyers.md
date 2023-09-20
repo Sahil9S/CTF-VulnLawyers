@@ -29,12 +29,32 @@
    ![Alt text](Flag.png)
    * When we found a subdomain with the help of dnsrecon bruteforcing, we also found another URL called : 
 http://data.vulnlawyers.co.uk
+
 * We visit that URL and we find our third Flag here.
+  
 * We fuzz the new domain and visit http://data.vulnlawyers.co.uk/users, it gives us our fourth flag and few usernames we can brute force.
+  
 * We try brute forcing the usernames with the help of burp suite and find a valid username and password.
+  
 * We find the password for the user email id i.e. 
 jaskaran.lowe@vulnlawyer.co.uk and the password is summer.
+
 * After we login, we get our fifth flag and the staff portal with the current cases and who is managing it.
+
+* We can see who is managing the case here and that the case can be changed with the particular user only.
+
+* We open our Burp Suite and check for a GET request of "lawyers-only" and send it to the repeater.
+
+* We get a token in the request tab and in response we see a new path called "lawyers-only-profile-details".
+
+* Now we send the same changed path request to the repeater and check for the response which shows us different Lawyer username and passwords.
+
+* We get the login details of the lawyer managing the case and we log in with those credentials.
+
+* On the we can see the case name, managed by and actions showing us to delete the case.
+
+* After we delete the case we get our final flag that is the sixth flag.
+  
 
 
    
